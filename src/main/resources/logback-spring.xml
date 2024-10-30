@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration debug="true">
+    <include resource="org/springframework/boot/logging/logback/defaults.xml" />
+    <include resource="org/springframework/boot/logging/logback/console-appender.xml" />
+
+    <appender name="MASK" class="ch.qos.logback.core.ConsoleAppender">
+        <withJansi>true</withJansi>
+        <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
+            <layout class="io.github.ehayik.kata.MaskingPatternLayout">
+                <maskPattern>\"username\"\s*:\s*\"(.*?)\"</maskPattern> <!-- username JSON pattern -->
+                <maskPattern>\"password\"\s*:\s*\"(.*?)\"</maskPattern> <!-- password JSON pattern -->
+                <maskPattern>\"email\"\s*:\s*\"(.*?)\"</maskPattern> <!-- email JSON pattern -->
+                <maskPattern>\"ip\"\s*:\s*\"(.*?)\"</maskPattern> <!-- IP JSON pattern -->
+                <maskPattern>\"macAddress\"\s*:\s*\"(.*?)\"</maskPattern> <!-- macAddress JSON pattern -->
+                <maskPattern>Authorization:\s*(.*)</maskPattern> <!-- Authorization header pattern -->
+                <maskPattern>username\s*=\s*([^\s]+)</maskPattern> <!-- username attribute pattern -->
+                <maskPattern>password\s*=\s*([^\s]+)</maskPattern> <!-- password attribute pattern -->
+                <pattern>[%thread] %highlight(%-5level) %cyan(%logger{15}) -%kvp -%msg %n</pattern>
+            </layout>
+        </encoder>
+    </appender>
+
+    <springProfile name="!localhost">
+        <root level="INFO">
+            <appender-ref ref="MASK"/>
+        </root>
+    </springProfile>
+
+    <springProfile name="localhost">
+        <root level="INFO">
+            <appender-ref ref="CONSOLE"/>
+        </root>
+    </springProfile>
+
+</configuration>
