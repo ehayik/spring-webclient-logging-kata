@@ -1,7 +1,7 @@
 # Spring WebClient Logging Kata
 
-This project demonstrates how to log full HTTP requests and responses in WebFlux-based clients for non-blocking 
-calls while securing logged content by masking sensitive information using Logback.
+This project demonstrates how to log full HTTP requests and responses in Spring WebClient based HTTP clients
+for non-blocking calls while securing logged content by masking sensitive information using Logback.
 
 ## Overview
 

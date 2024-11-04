@@ -4,7 +4,6 @@
     <include resource="org/springframework/boot/logging/logback/console-appender.xml" />
 
     <appender name="MASK" class="ch.qos.logback.core.ConsoleAppender">
-        <withJansi>true</withJansi>
         <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
             <layout class="io.github.ehayik.kata.MaskingPatternLayout">
                 <maskPattern>\"username\"\s*:\s*\"(.*?)\"</maskPattern> <!-- username JSON pattern -->
@@ -15,7 +14,7 @@
                 <maskPattern>Authorization:\s*(.*)</maskPattern> <!-- Authorization header pattern -->
                 <maskPattern>username\s*=\s*([^\s]+)</maskPattern> <!-- username attribute pattern -->
                 <maskPattern>password\s*=\s*([^\s]+)</maskPattern> <!-- password attribute pattern -->
-                <pattern>[%thread] %highlight(%-5level) %cyan(%logger{15}) -%kvp -%msg %n</pattern>
+                <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] [%X{traceId}] %highlight(%-5level) %cyan(%logger{15}) -%kvp -%msg %n</pattern>
             </layout>
         </encoder>
     </appender>

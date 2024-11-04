@@ -5,12 +5,13 @@ import com.maciejwalkowiak.spring.http.annotation.HttpClient;
 import java.util.List;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.service.annotation.GetExchange;
+import reactor.core.publisher.Mono;
 
 @HttpClient("users-client")
 public interface UsersClient {
 
     @GetExchange("/api/v2/users")
-    ResponsePayload getUsers(@RequestParam("_quantity") int quantity, @RequestParam("_gender") String gender);
+    Mono<ResponsePayload> getUsers(@RequestParam("_quantity") int quantity, @RequestParam("_gender") String gender);
 
     record ResponsePayload(String status, int total, List<UserDetails> data) {}
 
