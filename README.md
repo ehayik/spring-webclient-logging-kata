@@ -25,3 +25,4 @@ I learned a lot from the projects and resources listed below:
 - [Log Spring WebClient Request and Response](https://blog.stackademic.com/log-spring-webclient-request-and-response-412559f07a47)
 - [Using Logback with Spring Boot](https://springframework.guru/using-logback-spring-boot/)
 - [Spring Boot - Logging](https://docs.spring.io/spring-boot/reference/features/logging.html)
+- [MDC with WebClient in WebMVC](http://ttddyy.github.io/mdc-with-webclient-in-webmvc/)
