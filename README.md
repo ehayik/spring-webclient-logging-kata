@@ -1,4 +1,4 @@
-# Spring WebClient Logging Kata
+# Spring WebClient Logging and Masking Demo
 
 This project demonstrates how to log full HTTP requests and responses in Spring WebClient based HTTP clients
 for non-blocking calls while securing logged content by masking sensitive information using Logback.
@@ -15,6 +15,36 @@ data is masked in the logs.
 - Full logging of HTTP requests and responses using WebFlux.
 - Custom Logback layout for masking sensitive information.
 - Configurable patterns for masking via XML configuration.
+- Proper MDC context propagation in WebClient logs 
+
+## Getting Started
+
+### Prerequisites
+
+- Java SDK 21
+- Maven
+- IntelliJ IDEA or another preferred IDE
+
+### Installation
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/ehayik/spring-webclient-logging-kata.git
+cd spring-webclient-logging-kata
+```
+
+2. Build the project using Maven:
+
+```bash
+./mvnw compile
+```
+
+3. Run the application:
+
+```bash
+./mvnw spring-boot:run
+```
 
 ## Credits
 
